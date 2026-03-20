@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
 
-const SERVER_URL = 'http://localhost:3001';
+const SERVER_URL = 'https://tic-tac-toe-x6ib.onrender.com';
 
 // 1. One true singleton socket outside the component
 // This completely avoids React Strict Mode ghost connections

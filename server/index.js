@@ -10,7 +10,7 @@ const port = 3001;
 
 // Enable CORS for Express health check
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://rahman-xando.vercel.app/',
   methods: ['GET', 'POST']
 }));
 
@@ -25,7 +25,7 @@ const server = http.createServer(app);
 // Attach Socket.io with matching CORS policy
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:5173',
+    origin: 'https://rahman-xando.vercel.app/',
     methods: ['GET', 'POST'],
     credentials: true
   }
