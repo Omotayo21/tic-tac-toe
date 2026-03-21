@@ -37,6 +37,7 @@ function createRoom(playerName, socketId) {
     ],
     board: Array(9).fill(null),
     currentTurn: 'X',
+    startingTurn: 'X',
     scores: {
       [playerName]: { wins: 0, losses: 0, draws: 0 }
     },
@@ -160,10 +161,10 @@ function resetBoard(roomCode) {
   room.board = Array(9).fill(null);
   room.status = 'playing';
   
-  // Alternate starting turn. X goes first normally.
-  // We can just rely on whoever went first last time, 
-  // but to keep it simple, we default back to X.
-  room.currentTurn = 'X'; 
+  // Pivot the starting turn for fairness
+  const nextTargetStart = room.startingTurn === 'X' ? 'O' : 'X';
+  room.startingTurn = nextTargetStart;
+  room.currentTurn = nextTargetStart;
   
   return room;
 }
